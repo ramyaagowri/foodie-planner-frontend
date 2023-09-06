@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserDataContext } from "../context";
-
+import "./style.css"
+import NavBar from "../navBar";
 const Home = () => {
   let navigate = useNavigate();
   const location = useLocation();
@@ -34,11 +35,16 @@ const Home = () => {
       .catch(error => {
         console.log("Error", error)
       })
+    // ?==================
+    // axios.get("",)
   }, []);
 
   return (
     <>
-      <div><button onClick={() => toProfilePage()}>Profile</button></div>
+      <div className="HomePage">
+        {/* <NavBar /> */}
+      </div>
+      {/* <div className="Profile-btn"><button onClick={() => toProfilePage()}>Profile</button></div> */}
     </>
   );
 

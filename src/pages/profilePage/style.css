@@ -1,0 +1,22 @@
+.profile-nav ul{
+    display:flex;
+    justify-content:space-between;
+    list-style-type: none;
+}
+.profile-nav ul li :hover{
+    color : #939598
+}
+.profile-nav ul li a{
+    color:black
+}
+.profile-nav ul li a.active{
+    color: rgb(101, 142, 193)
+}
+.profile-nav{
+    padding :15px;
+    outline:1px solid black;
+    border-radius: 10px;
+}
+.profile-full{
+    padding: 20px;
+}

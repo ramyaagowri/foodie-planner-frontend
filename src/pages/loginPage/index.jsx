@@ -3,7 +3,6 @@ import "./loginpage.css";
 import axios from "axios";
 import Auth from "../../component/auth";
 
-
 const LoginPage = () => {
   const [googleUrl, setGoogleUrl] = useState("")
 
@@ -19,7 +18,10 @@ const LoginPage = () => {
 
   return (
     <div className="loginPage">
-      <Auth />
+      <div>
+        <Auth />
+      </div>
+
       {googleUrl && (
         <div className="googleauth">
           <div style={{ margin: "15px 0" }} >or</div>

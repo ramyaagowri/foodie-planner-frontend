@@ -28,21 +28,27 @@ const Auth = () => {
 
   const postlogin = (e, { email, password }) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:4000/foodie-planner/Auth/signup", {
-        emailId: email,
-        password,
-      })
-      .then((response) => {
-        console.log(response.data.token);
-        if (response.status == 200) {
-          localStorage.setItem("token", response.data.token);
-          navigate("/home");
-        }
-      })
-      .catch((error) => {
-        console.log("Auth Error :", error);
-      });
+    const emailRegex = /.*@gmail\.com$/;
+    if (emailRegex.test(email)) {
+      axios
+        .post("http://localhost:4000/foodie-planner/Auth/signup", {
+          emailId: email,
+          password,
+        })
+        .then((response) => {
+          console.log(response.data.token);
+          if (response.status == 200) {
+            localStorage.setItem("token", response.data.token);
+            navigate("/home");
+          }
+        })
+        .catch((error) => {
+          console.log("Auth Error :", error);
+        });
+    }
+    else {
+      return;
+    }
   };
 
   useEffect(() => {
