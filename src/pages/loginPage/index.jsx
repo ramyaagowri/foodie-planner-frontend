@@ -11,7 +11,7 @@ const LoginPage = () => {
       { auth: true }
     )
       .then((res) => {
-        // console.log("zzzz", res.data)
+        console.log("zzzz", res.data)
         setGoogleUrl(res.data);
       });
   }, [])

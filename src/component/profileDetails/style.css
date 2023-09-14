@@ -1,0 +1,85 @@
+.profilecard {
+  outline: 2px solid rgb(132, 120, 120);
+  /* padding:5%; */
+  margin: 5% 15% 5% 15%;
+  padding: 5% 0% 5% 0%;
+}
+.profilecard div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 30px; */
+  gap: 20px;
+}
+.profilecard div img {
+  height: auto;
+  width: 15%;
+  border-radius: 30px;
+}
+.profilecard div p {
+  text-align: center;
+  max-width: 50%;
+}
+.details {
+  display: flex;
+  width: 600px;
+}
+#descriptionBox {
+  resize: none;
+  width: 60%;
+  font-size: 15px;
+}
+.name,
+.desc {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+.profilecard .desc1 {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+#desc2 {
+  resize:none;
+  width: 60%;
+  padding: 10px;
+  font-size: 15px;
+}
+.labelPic{
+  background-color :#262626;
+  color:white;
+  padding:10px;
+  border-radius:8px
+}
+.name input {
+  width: 60%;
+  padding: 10px;
+  font-size: 15px;
+}
+.profilecard .name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.profilecard .desc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.profilecard .name button {
+  background-color: #262626;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+.profilecard .desc button {
+  background-color: #262626;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}

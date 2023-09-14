@@ -1,0 +1,122 @@
+.backdrop {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdrop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://metropolitanhost.com/themes/themeforest/html/trickly/assets/img/sidebar-cta.jpg");
+  filter: brightness(0.5);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.posts {
+  display: flex;
+}
+.outline {
+  outline: 2px solid white;
+  height: 240px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 2;
+  opacity: 1;
+  /* font-weight: bold; */
+  font-size: large;
+}
+.out2 {
+  font-size: 42px;
+  text-align: center;
+}
+.sidebar {
+  margin-right: -400px;
+  outline: 1px solid rgb(196, 187, 187);
+  top: 0px;
+  right: 0px;
+  position: fixed;
+  background-color: white;
+  z-index: 7;
+  /* overflow: scroll; */
+  transition: 0.7s margin;
+  height: 100vh;
+}
+.activee {
+  padding: 30px;
+  /* margin-right: -400px; */
+  outline: 1px solid rgb(196, 187, 187);
+  top: 0px;
+  right: 0px;
+  position: fixed;
+  background-color: white;
+  z-index: 7;
+  overflow: scroll;
+  transition: 0.4s margin ease-out;
+  margin-right: 0px;
+  height: 100vh;
+  /* transition: 0.3s margin; */
+}
+.postsCard {
+  display: flex;
+  gap: 30px;
+  padding: 10px;
+  outline: 1px solid rgb(196, 187, 187);
+  margin: 10px 10px 10px 0;
+  max-width: 300px;
+  max-height: 180px;
+}
+
+.imageContainer {
+  flex: 1; /* Image container takes 1 part of available space */
+}
+
+.imageContainer img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.contentContainer {
+  flex: 2; /* Content container takes 2 parts of available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.unit2 {
+  max-height: 2.8em; /* Adjust the max-height to control the number of lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  color: black;
+  font-size: 17px;
+}
+
+.unit1 {
+  color: rgb(190, 60, 60);
+  max-height: 2.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  font-size: 15px;
+}
+
+.postCard div img {
+  /* 
+  width: 100%; */
+}
+/* .recentCard {
+  color: black;
+} */

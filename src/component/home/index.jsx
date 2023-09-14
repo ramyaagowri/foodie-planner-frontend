@@ -4,45 +4,43 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { UserDataContext } from "../context";
 import "./style.css"
 import NavBar from "../navBar";
+import HomeSection from "../homeSection";
+import HomeFooter from "../homeFooter";
+import FooterImageSeries from "../footerImageSeries";
+
 const Home = () => {
-  let navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const toProfilePage = () => {
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-    }
-    else {
-      navigate("/profile")
-    }
 
-  }
+
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-    }
     const queryParams = new URLSearchParams(location.search);
     const code = queryParams.get('code');
-    // console.log("Google code " + code)
+    console.log("Google code " + code)
 
     axios.post("http://localhost:4000/foodie-planner/Auth/googleOauth", { code })
       .then((response) => {
-        // console.log("dtaaaa", response.data)
-        console.log(response)
-        localStorage.setItem("token", response.data.token);
+        console.log("dtaaaa", response.data)
+        // console.log(response)
+        localStorage.setItem("token", response.data.token)
+        navigate("/home")
+
       })
       .catch(error => {
         console.log("Error", error)
       })
-    // ?==================
-    // axios.get("",)
+
   }, []);
 
   return (
     <>
       <div className="HomePage">
-        {/* <NavBar /> */}
+        <NavBar />
+        <HomeSection />
+        <FooterImageSeries />
+        <HomeFooter />
       </div>
       {/* <div className="Profile-btn"><button onClick={() => toProfilePage()}>Profile</button></div> */}
     </>

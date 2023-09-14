@@ -1,0 +1,31 @@
+.recipes {
+  line-height: 2;
+  margin: 0;
+  color: #fff;
+  font-size: 80px;
+  font-family: "Noto Serif", serif;
+  z-index: 3;
+  position: relative;
+  font-weight: 700;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://metropolitanhost.com/themes/themeforest/html/trickly/assets/img/subheader.jpg");
+  filter: brightness(50%);
+  background-position: center;
+  z-index: -1;
+  background-size: cover;
+  /* height: 560px; */
+  display: flex;
+  flex-wrap: wrap;
+}

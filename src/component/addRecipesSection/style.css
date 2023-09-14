@@ -1,0 +1,161 @@
+/* @font-face {
+  font-family: poppins-font;
+  src: url("../../assets/fonts/poppins/Poppins-Black.ttf");
+} */
+.addside {
+  display: flex;
+  margin: 60px;
+}
+.recipes {
+  line-height: 2;
+  margin: 0;
+  color: #fff;
+  font-size: 80px;
+  font-family: "Noto Serif", serif;
+  z-index: 3;
+  position: relative;
+  font-weight: 700;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(https://metropolitanhost.com/themes/themeforest/html/trickly/assets/img/subheader.jpg);
+  filter: brightness(50%);
+  background-position: center;
+  z-index: -1;
+  background-size: cover;
+  /* height: 560px; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* .form {
+  outline: 1px solid rgb(213, 227, 230);
+  padding: 20px 20px 20px 70px;
+} */
+.box {
+  padding: 10px;
+  font-size: 24px;
+  margin: 0 0 20px;
+  font-family: "Noto Serif", serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #222;
+}
+.main {
+  flex: 2;
+  padding: 50px;
+  margin: 50px;
+  border: 2px solid #7a7a7a;
+}
+.recipe {
+  padding: 0px 0px 10px 0px;
+  display: flex;
+  gap: 20px;
+}
+.box input {
+  padding: 15px;
+  /* font-size: 15px; */
+  width: 95%;
+  border: 1px solid rgb(213, 227, 230);
+}
+.box input::placeholder {
+  color: #7a7a7a;
+  padding: 8px 20px;
+  letter-spacing: 0.1px;
+  font-size: 15px;
+}
+.box textarea::placeholder {
+  color: #7a7a7a;
+  padding: 8px 20px;
+  letter-spacing: 0.1px;
+  font-size: 15px;
+}
+.box textarea {
+  width: 300px;
+  border: 1px solid rgb(213, 227, 230);
+  padding: 20px;
+}
+.ele3 input {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.file-input-container {
+  overflow: hidden;
+  display: flex;
+}
+
+.custom-file-input {
+  padding: 10px 20px;
+  background-color: #262626;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#description {
+  width: 95%;
+  height: 200px;
+  resize: none;
+}
+.ele4 {
+  display: flex;
+  gap: 15px;
+}
+.ele4 input {
+  padding: 15px;
+  /* font-size: 15px; */
+  min-width: 46%;
+  margin-left: 10px;
+
+  border: 1px solid rgb(213, 227, 230);
+}
+.ele4 input::placeholder {
+  color: #7a7a7a;
+  padding: 8px 20px;
+  letter-spacing: 0.1px;
+  font-size: 15px;
+}
+.ingredients {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+.add-ingredient {
+  padding: 13px 20px;
+  background-color: #262626;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.submit {
+  padding: 13px 20px;
+  background-color: rgb(204, 64, 64);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.select-option {
+  padding: 15px;
+  width: 40%;
+  border-color: 1px solid rgb(213, 227, 230);
+}

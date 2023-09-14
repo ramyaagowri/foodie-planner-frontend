@@ -1,0 +1,10 @@
+.img-container {
+  display: flex;
+  flex-flow: row;
+  /* flex-wrap: wrap; */
+  /* flex-grow: 1; */
+  flex-shrink: 1;
+}
+.img-container img {
+  width: 16.667%;
+}

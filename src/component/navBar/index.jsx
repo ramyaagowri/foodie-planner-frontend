@@ -1,13 +1,73 @@
-import React from 'react';
-// import { FaHamburgerMenu } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { ReactSVG } from "react-svg";
+import SideBar from '../sideBar';
+import facebook from "../../assets/facebook.svg"
+import instagram from "../../assets/instagram.svg"
+import twitter from "../../assets/twitter.svg"
+import { NavLink } from 'react-router-dom';
+import "./style.css"
 
 const NavBar = () => {
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleSidebar = () => {
+        if (!isClicked) {
+            setIsClicked(true);
+        }
+
+    }
+    const removeBackdrop = () => {
+        setIsClicked(false)
+    }
     return (
-        <div className='navbar'>
-            <div>
-                <FaHamburgerMenu />
+        <>
+            <div className={isClicked ? "Backdrop" : "removeBackdrop"} onClick={() => removeBackdrop()}>
             </div>
-        </div>
+            <div className='navbar'>
+                <div className='menu' onClick={() => handleSidebar()}>
+                    <div className="menu-icon">
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                    </div>
+                    {/* <ReactSVG src={menu}
+                    style={{
+                        height: "20px",
+                        width: "20px",
+                    }}
+                /> */}
+                </div>
+                <div className='subnav'>
+                    <ul>
+                        <li> <NavLink to="/home">Home</NavLink></li>
+                        <li><NavLink to="/add-recipes">Add Recipe</NavLink></li>
+                        <li><NavLink>Recipes</NavLink></li>
+                        <li><NavLink to="/profile/posted-recipe">Profile</NavLink></li>
+                    </ul>
+                </div>
+                <div className='social'>
+                    <ReactSVG src={facebook}
+                        style={{
+                            height: "20px",
+                            width: "20px",
+                        }}
+                    />
+                    <ReactSVG src={instagram}
+                        style={{
+                            height: "20px",
+                            width: "20px",
+                        }}
+                    />
+                    <ReactSVG src={twitter}
+                        style={{
+                            height: "20px",
+                            width: "20px",
+                        }}
+                    />
+                </div>
+            </div>
+            <SideBar clicked={isClicked} />
+        </>
     );
 };
 

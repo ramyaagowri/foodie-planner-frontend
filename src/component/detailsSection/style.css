@@ -1,0 +1,30 @@
+.detailsMain {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px;
+}
+.recipeName {
+  font-size: 30px;
+}
+.recipeImage img {
+  height: 50%;
+  width: 50%;
+}
+.text {
+  font-size: 20px;
+}
+.title {
+  font-size: 30px;
+}
+.saveButton {
+  background-color: #262626;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+.ing {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+}

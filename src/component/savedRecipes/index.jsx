@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import { ReactSVG } from "react-svg";
+import clock from "../../assets/clock.svg"
+import knife from "../../assets/knife.svg"
+import { NavLink } from "react-router-dom";
 const SavedRecipes = () => {
-    const [Recipe, setRecipe] = useState([]);
+    const [recipes, setRecipe] = useState([]);
     useEffect(() => {
         const token = localStorage.getItem("token");
 
@@ -14,40 +17,50 @@ const SavedRecipes = () => {
                     },
                 })
                 .then((response) => {
-                    console.log(response.data.savedRecipes)
-                    setRecipe(response.data.savedRecipes)
+                    // console.log("From Saved Recipes", response.data[0].savedRecipes)
+                    setRecipe(response.data[0].savedRecipes)
                 })
                 .catch((error) => {
                     console.error("Error:", error);
                 });
         }
     }, []);
-    return <><div className="card-container">
-        {Recipe.map((recipe) => {
-            { console.log(recipe.recipe.recipeName) }
-            return (<div className="card-wrap" key={recipe.recipe.id} style={{ backgroundImage: `url("${recipe.recipe.image}")` }}>
-                <div className="card-content">
-                    <div >
-                        <div className="recipe-name"><strong>Name of the Recipe :  </strong>{recipe.recipe.recipeName}</div>
-                        <div className="description"><strong>Description :  </strong>{recipe.recipe.description}</div>
+    return <div>
+        <div className="grid-container">
+            {recipes.map((recipe) => {
+                const recipeDetailLink = `/details/${recipes.id}`;
+                return <NavLink to={recipeDetailLink} key={recipe.id}>
+                    <div className="grid">
+                        <div className="imgdiv">
+                            <div className="img" style={{ backgroundImage: `url(${recipe.recipe.image})` }}>
+                            </div>
+                        </div>
+
+                        <div className="expert">
+                            <div className="svg">
+                                <ReactSVG src={clock} />
+                                <div>45 Minutes</div>
+                            </div>
+                            <div className="svg">
+                                <ReactSVG src={knife} style={{
+                                    height: "20px",
+                                    width: "20px"
+                                }} />
+                                <div>Expert</div>
+                            </div>
+                        </div>
+                        
+                        {/* {console.log(recipe.recipesName)} */}
+                        <div className="content">
+                            <div className="content-heading"><strong>{recipe.recipe.recipeName}</strong></div>
+                            <div className="content-section">{recipe.recipe.description}</div>
+                            <div className="content-footer"><strong>Read More</strong></div>
+                        </div>
                     </div>
-                    <div className="options">
-                        <span><strong>Rated Upto : </strong>{recipe.recipe.rating}</span>
-                        <a href="">View</a>
-                    </div>
-                </div>
-            </div>)
-        })}
-        {/* <div className="card">44
-    Posted Recipies
-</div>
-<div className="card">
-    Posted Recipies
-</div>
-<div className="card">
-    Posted Recipies
-</div> */}
-    </div></>
+                </NavLink>
+            })}
+        </div>
+    </div>
 }
 
 export default SavedRecipes;

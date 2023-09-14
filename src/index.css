@@ -14,6 +14,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
+/* @font-face {
+  font-family: mont-font;
+  src: url("./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+} */
+
+* {
+  box-sizing: border-box;
+  font-family: Inter;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,6 +34,8 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
+
   /* display: flex; */
   /* place-items: center; */
   min-width: 320px;

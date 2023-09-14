@@ -1,10 +1,14 @@
 import { NavLink, Outlet } from "react-router-dom";
-import ProfileTop from "../../component/Profile";
 import "./style.css"
+import ProfileSection from "../../component/Profile";
+import FooterImageSeries from "../../component/footerImageSeries";
+import HomeFooter from "../../component/homeFooter";
+import ProfileDetails from "../../component/profileDetails";
 
 function ProfilePage() {
-    return <div className="profile-full">
-        <ProfileTop />
+    return <div>
+        <ProfileSection />
+        <ProfileDetails />
         <div className="profile-nav">
             <ul>
                 <li> <NavLink to="posted-recipe">Posted Recipes</NavLink></li>
@@ -13,6 +17,8 @@ function ProfilePage() {
             </ul>
         </div >
         <Outlet />
+        <FooterImageSeries />
+        <HomeFooter />
     </div >
 }
 

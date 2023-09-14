@@ -1,0 +1,73 @@
+.footer-main {
+  /* outline: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #212529;
+}
+.footer {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  padding: 50px;
+}
+.sociallink svg {
+  height: 20px;
+  width: 20px;
+  fill: white;
+}
+.sociallink {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+.appname {
+  font-size: 2.5rem;
+  line-height: 1.5;
+}
+.aboutdiv {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 30px;
+}
+.aboutdiv img {
+  height: 50px;
+  width: 50px;
+}
+
+.about,
+.quicklink,
+.recent-recipes {
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.footer-about {
+  flex: 2;
+}
+
+.about-content {
+  display: flex;
+}
+.recent {
+  display: flex;
+  flex-direction: column;
+}
+.recents {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+.burgers {
+  display: flex;
+}
+.burgers:hover {
+  color: #ff0004d5;
+}
+.Quick {
+  flex: 1;
+}
+.Recipe {
+  flex: 2.5;
+}

@@ -1,22 +1,21 @@
-.profile-nav ul{
-    display:flex;
-    justify-content:space-between;
-    list-style-type: none;
+.profile-nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
 }
-.profile-nav ul li :hover{
-    color : #939598
+.profile-nav ul li :hover {
+  color: rgb(202, 89, 89);
 }
-.profile-nav ul li a{
-    color:black
+.profile-nav ul li a {
+  color: black;
+  transition: 0.3s color;
 }
-.profile-nav ul li a.active{
-    color: rgb(101, 142, 193)
+.profile-nav ul li a.active {
+  color: rgb(101, 142, 193);
 }
-.profile-nav{
-    padding :15px;
-    outline:1px solid black;
-    border-radius: 10px;
-}
-.profile-full{
-    padding: 20px;
+.profile-nav {
+  margin: 0px 100px;
+  padding: 15px;
+  outline: 1px solid #939598;
+  border-radius: 10px;
 }
