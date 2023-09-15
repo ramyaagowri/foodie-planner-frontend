@@ -23,7 +23,9 @@ const DetailsSection = (props) => {
                         Authorization: `Bearer ${token}`,
                     },
                 }
-            );
+            ).then(() => {
+                navigate("/profile/saved-recipe")
+            });
         }
     }
     useEffect(() => {
@@ -33,6 +35,7 @@ const DetailsSection = (props) => {
                 axios.get(`http://localhost:4000/foodie-planner/Recipes/getIngredients/${id}`)
                     .then((response) => {
                         console.log("Ingredients ", response.data);
+                        console.log(recipe, ingredients, "Froom detailed recipes")
                         setIngredients(response.data)
                     })
                     .catch((e) => console.log(e))
@@ -57,6 +60,8 @@ const DetailsSection = (props) => {
                 <div className="title">Procedure</div>
                 <div className="procedure text" >{recipe?.procedure}</div>
                 <div className="title">Ingredients</div>
+                {console.log("Ingredients from Delaited Section ", ingredients)
+                }
                 {
                     ingredients.map((ing) => {
                         return <div key={ing.id} className="ing">

@@ -4,11 +4,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const AddRecipesSection = () => {
     const navigate = useNavigate();
-
+    const [fileName, setFileName] = useState(false);
     const [ingredientName, setIngredientName] = useState("");
     const [ingredientQuantity, setIngredientQuantity] = useState("");
     const [ingredients, setIngredients] = useState([]);
-    const [selectedFiles, setSelectedFiles] = useState([]);
+    const [file, setFile] = useState();
     useEffect(() => {
         console.log("ingredients ", ingredients)
     }, [ingredients])
@@ -53,9 +53,10 @@ const AddRecipesSection = () => {
         timeToMake: 0
     });
     const handleFileChange = (e) => {
-
-        const files = e.target.files;
-        setSelectedFiles([...selectedFiles, ...files]);
+        const files = e.target.files[0];
+        setFile(files);
+        console.log("File name ", files.name)
+        setFileName(files.name)
     };
 
     const handleSubmit = async (e) => {
@@ -86,7 +87,7 @@ const AddRecipesSection = () => {
             console.log("For multipart data ", createRecipeResponse.data);
 
             const formData = new FormData();
-            formData.append("files", selectedFiles[0]);
+            formData.append("files", file);
 
             const fileUploadResponse = await axios.post(
                 `http://localhost:4000/foodie-planner/Recipes/fileUpload/${createRecipeResponse.data.id}`,
@@ -97,9 +98,12 @@ const AddRecipesSection = () => {
                         "Content-Type": "multipart/form-data",
                     },
                 }
-            );
+            ).then(() => {
+                navigate("/profile/posted-recipe")
+            })
 
             console.log("For form Data    ", fileUploadResponse.data);
+
         } catch (error) {
             console.error("Error:", error);
         }
@@ -152,11 +156,11 @@ const AddRecipesSection = () => {
                                 id="file-input"
                                 style={{ display: 'none' }}
                                 onChange={handleFileChange}
-                                multiple
                             />
                             <label htmlFor="file-input" className="custom-file-input">
                                 Upload Photos
                             </label>
+                            {fileName ? <p className="fileName">File name : {fileName}</p> : null}
                         </div>
                         <div className="ingredients">
                             <div className="ele3 box">
@@ -170,11 +174,14 @@ const AddRecipesSection = () => {
                             <div>
                                 <button className="add-ingredient" onClick={handleAddIngredient}>Add Ingredients</button>
                             </div>
-                            <h3>Ingredients:</h3>
+                            {ingredients.length == 0 ? null : <h3>Ingredients:</h3>}
+
                             <ul>
                                 {ingredients.map((ingredient, index) => (
-                                    <li key={index}>
-                                        {ingredient.ingredientName} - {ingredient.ingredientQuantity}
+                                    <li key={index} className="listElement">
+                                        <div>{ingredient.ingredientName}</div>
+                                        <div><strong>-</strong></div>
+                                        <div>{ingredient.ingredientQuantity}</div>
                                         <button onClick={(e) => handleDeleteIngredient(index, e)}>
                                             Delete
                                         </button>
@@ -188,7 +195,7 @@ const AddRecipesSection = () => {
                         </div>
                     </div>
                     <div>
-                        <button className="submit" onClick={handleSubmit}>Submit Recipe</button>
+                        <button className="submit" onClick={(e) => handleSubmit(e)}>Submit Recipe</button>
                     </div>
                 </form>
 

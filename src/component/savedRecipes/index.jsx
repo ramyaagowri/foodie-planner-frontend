@@ -39,14 +39,14 @@ const SavedRecipes = () => {
                         <div className="expert">
                             <div className="svg">
                                 <ReactSVG src={clock} />
-                                <div>45 Minutes</div>
+                                <div>{recipe.recipe.timeToMake} Minutes</div>
                             </div>
                             <div className="svg">
                                 <ReactSVG src={knife} style={{
                                     height: "20px",
                                     width: "20px"
                                 }} />
-                                <div>Expert</div>
+                                <div>{recipe.recipe.level}</div>
                             </div>
                         </div>
                         

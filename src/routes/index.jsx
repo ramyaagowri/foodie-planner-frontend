@@ -10,6 +10,7 @@ import PostedRecipes from "../component/postedRecipes";
 import SavedRecipes from "../component/savedRecipes";
 import MealPlans from "../component/mealPlans";
 import AddRecipes from "../pages/addRecipes";
+import ProfileDetails from "../component/profileDetails";
 function AppRoutes() {
     return (
         <>
@@ -18,6 +19,7 @@ function AppRoutes() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/profile" element={<Profile />}>
+                        <Route path="user-profile" element={<ProfileDetails />} />
                         <Route path="posted-recipe" element={<PostedRecipes />} />
                         <Route path="saved-recipe" element={<SavedRecipes />} />
                         <Route path="meal-plans" element={<MealPlans />} />

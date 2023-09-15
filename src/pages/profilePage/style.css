@@ -1,7 +1,11 @@
 .profile-nav ul {
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   list-style-type: none;
+  padding: 30px;
+  min-width: 200px;
+  gap: 20px;
 }
 .profile-nav ul li :hover {
   color: rgb(202, 89, 89);
@@ -14,8 +18,15 @@
   color: rgb(101, 142, 193);
 }
 .profile-nav {
-  margin: 0px 100px;
-  padding: 15px;
   outline: 1px solid #939598;
   border-radius: 10px;
+  height: fit-content;
+}
+.profile-main {
+  display: flex;
+  padding: 20px;
+}
+
+.profile-contents{
+  width: 100%;
 }

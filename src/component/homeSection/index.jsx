@@ -27,33 +27,31 @@ const HomeSection = () => {
             <div className="grid-container">
                 {recipes.map((recipes) => {
                     const recipeDetailLink = `/details/${recipes.id}`;
-                    return <NavLink to={recipeDetailLink} key={recipes.id}>
-                        <div className="grid"  >
-                            <div className="imgdiv">
-                                <div className="img" style={{ backgroundImage: `url(${recipes.image})` }}>
-                                </div>
+                    return <div className="grid" key={recipes.id}>
+                        <div className="imgdiv">
+                            <a href={recipeDetailLink}><div className="img" style={{ backgroundImage: `url(${recipes.image})` }} >
+                            </div></a>
+                        </div>
+                        <div className="expert">
+                            <div className="svg">
+                                <ReactSVG src={clock} />
+                                <div>{recipes.timeToMake} Minutes</div>
                             </div>
-                            <div className="expert">
-                                <div className="svg">
-                                    <ReactSVG src={clock} />
-                                    <div>45 Minutes</div>
-                                </div>
-                                <div className="svg">
-                                    <ReactSVG src={knife} style={{
-                                        height: "20px",
-                                        width: "20px"
-                                    }} />
-                                    <div>Expert</div>
-                                </div>
-                            </div>
-                            {/* {console.log(recipe.recipesName)} */}
-                            <div className="content">
-                                <div className="content-heading"><strong>{recipes.recipeName}</strong></div>
-                                <div className="content-section">{recipes.description}</div>
-                                <div className="content-footer"><strong>Read More</strong></div>
+                            <div className="svg">
+                                <ReactSVG src={knife} style={{
+                                    height: "20px",
+                                    width: "20px"
+                                }} />
+                                <div>{recipes.level}</div>
                             </div>
                         </div>
-                    </NavLink>
+                        {/* {console.log(recipe.recipesName)} */}
+                        <div className="content">
+                            <div className="content-heading"><strong>{recipes.recipeName}</strong></div>
+                            <div className="content-section">{recipes.description}</div>
+                            <a href={recipeDetailLink}><div className="content-footer"><strong>Read More</strong></div></a>
+                        </div>
+                    </div>
                 })}
             </div>
         </div>

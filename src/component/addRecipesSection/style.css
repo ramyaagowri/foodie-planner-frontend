@@ -6,6 +6,10 @@
   display: flex;
   margin: 60px;
 }
+.listElement{
+  display:flex;
+  justify-content: space-evenly;
+}
 .recipes {
   line-height: 2;
   margin: 0;
@@ -37,7 +41,10 @@
   display: flex;
   flex-wrap: wrap;
 }
-
+.fileName {
+  font-size: 15px;
+  color: rgb(177, 73, 73);
+}
 /* .form {
   outline: 1px solid rgb(213, 227, 230);
   padding: 20px 20px 20px 70px;
@@ -95,6 +102,7 @@
 .file-input-container {
   overflow: hidden;
   display: flex;
+  gap:20px
 }
 
 .custom-file-input {

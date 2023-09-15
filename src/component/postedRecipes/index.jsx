@@ -1,13 +1,20 @@
-import axios from "axios";
+import axios, { AxiosHeaders } from "axios";
 import { useEffect, useState } from "react";
 import { ReactSVG } from "react-svg";
 import clock from "../../assets/clock.svg"
 import knife from "../../assets/knife.svg"
-import { NavLink } from "react-router-dom";
 
 const PostedRecipies = () => {
 
     const [recipes, setRecipes] = useState([]);
+    const [deleted, setDeleted] = useState(false);
+    const handleDelete = (id) => {
+        //Delete the post 
+        axios.delete(`http://localhost:4000/foodie-planner/Recipes/delete/${id}`)
+            .then(() => {
+                setDeleted(true);
+            })
+    }
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -21,48 +28,48 @@ const PostedRecipies = () => {
                 .then((response) => {
                     console.log("From profile data ", response.data)
                     setRecipes(response.data[0].postedRecipies)
-                    // setUser({
-                    //     name, emailId, description, profilePic
-                    // })
-                    // setUser(response.data.postedRecipies)
+
                 })
                 .catch((error) => {
                     console.error("Error:", error);
                 });
         }
-    }, []);
+    }, [deleted]);
 
     return <div>
         <div className="grid-container">
             {recipes.map((recipes) => {
                 const recipeDetailLink = `/details/${recipes.id}`;
-                return <NavLink to={recipeDetailLink} key={recipes.id}>
-                    <div className="grid" >
-                        <div className="imgdiv">
-                            <div className="img" style={{ backgroundImage: `url(${recipes.image})` }}>
-                            </div>
+                return <div className="grid" key={recipes.id}>
+                    <div className="imgdiv">
+                        <a href={recipeDetailLink}>
+                            <div className="img" style={{ backgroundImage: `url(${recipes.image})` }}>                        </div>
+                        </a>
+                    </div>
+                    <div className="expert">
+                        <div className="svg">
+                            <ReactSVG src={clock} />
+                            <div>{recipes.timeToMake} Minutes</div>
                         </div>
-                        <div className="expert">
-                            <div className="svg">
-                                <ReactSVG src={clock} />
-                                <div>45 Minutes</div>
-                            </div>
-                            <div className="svg">
-                                <ReactSVG src={knife} style={{
-                                    height: "20px",
-                                    width: "20px"
-                                }} />
-                                <div>Expert</div>
-                            </div>
-                        </div>
-                        {/* {console.log(recipe.recipesName)} */}
-                        <div className="content">
-                            <div className="content-heading"><strong>{recipes.recipeName}</strong></div>
-                            <div className="content-section">{recipes.description}</div>
-                            <div className="content-footer"><strong>Read More</strong></div>
+                        <div className="svg">
+                            <ReactSVG src={knife} style={{
+                                height: "20px",
+                                width: "20px"
+                            }} />
+                            <div>{recipes.level}</div>
                         </div>
                     </div>
-                </NavLink>
+                    <div className="content">
+                        <div className="content-heading"><strong>{recipes.recipeName}</strong></div>
+                        <div className="content-section">{recipes.description}</div>
+                        <a href={recipeDetailLink}><div className="content-footer"><strong>Read More</strong></div></a>
+                        {deleted ? <> <div className="deleted">Your Recipe Has Been Deleted</div>
+                            {setTimeout(() => {
+                                setDeleted(false)
+                            }, 5000)}</> : <button onClick={() => handleDelete(recipes.id)}>Delete</button>}
+
+                    </div>
+                </div>
             })}
         </div>
     </div>

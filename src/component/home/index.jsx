@@ -1,7 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { UserDataContext } from "../context";
 import "./style.css"
 import NavBar from "../navBar";
 import HomeSection from "../homeSection";
