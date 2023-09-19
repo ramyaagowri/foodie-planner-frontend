@@ -1,7 +1,9 @@
 import { useEffect, useReducer, useState } from "react";
 import "./style.css"
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import Slide from "../slide";
+import SideBar from "../sideBar";
 const AddRecipesSection = () => {
     const navigate = useNavigate();
     const [fileName, setFileName] = useState(false);
@@ -13,7 +15,14 @@ const AddRecipesSection = () => {
         console.log("ingredients ", ingredients)
     }, [ingredients])
 
-
+    const [Recipes, setRecipe] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:4000/foodie-planner/Recipes/randomRecipe")
+            .then((response) => {
+                console.log("From Side Bar", response.data)
+                setRecipe(response.data)
+            })
+    }, [])
     const reducer = (prevState, action) => {
         switch (action.type) {
             case "updateRecipeName":
@@ -199,6 +208,31 @@ const AddRecipesSection = () => {
                     </div>
                 </form>
 
+            </div>
+        </div>
+        <div className="addSectionSlideDiv">
+
+            <Slide />
+            <div className="recentCards">
+                <div className="trendy">Trendy Recipes</div>
+                {
+                    Recipes.map((item) => {
+                        const link = `/details/${item.id}`
+                        return <NavLink to={link} key={item.id}>
+                            <div className="posts">
+                                <div className="postsCard">
+                                    <div className="imageContainer">
+                                        <img src={item.image} />
+                                    </div>
+                                    <div className="contentContainer">
+                                        <div className="unit1"><strong>{item.recipeName}</strong></div>
+                                        <div className="unit2"><strong>{item.description}</strong></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </NavLink>
+                    })
+                }
             </div>
         </div>
 

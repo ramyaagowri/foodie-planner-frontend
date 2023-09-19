@@ -7,6 +7,16 @@ import { NavLink } from "react-router-dom";
 const SavedRecipes = () => {
     const [recipes, setRecipe] = useState([]);
     useEffect(() => {
+        const scrollToContent = () => {
+            const targetElement = document.getElementById('scrollTarget');
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
+        scrollToContent();
+    }, []);
+    useEffect(() => {
         const token = localStorage.getItem("token");
 
         if (token) {
@@ -26,6 +36,7 @@ const SavedRecipes = () => {
         }
     }, []);
     return <div>
+        <div id="scrollTarget"></div>
         <div className="grid-container">
             {recipes.map((recipe) => {
                 const recipeDetailLink = `/details/${recipes.id}`;
@@ -49,7 +60,7 @@ const SavedRecipes = () => {
                                 <div>{recipe.recipe.level}</div>
                             </div>
                         </div>
-                        
+
                         {/* {console.log(recipe.recipesName)} */}
                         <div className="content">
                             <div className="content-heading"><strong>{recipe.recipe.recipeName}</strong></div>

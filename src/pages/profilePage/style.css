@@ -11,7 +11,7 @@
   color: rgb(202, 89, 89);
 }
 .profile-nav ul li a {
-  color: black;
+  color: rgb(162, 67, 67);
   transition: 0.3s color;
 }
 .profile-nav ul li a.active {
@@ -27,6 +27,6 @@
   padding: 20px;
 }
 
-.profile-contents{
+.profile-contents {
   width: 100%;
 }

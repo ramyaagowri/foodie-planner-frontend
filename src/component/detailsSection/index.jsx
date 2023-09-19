@@ -2,6 +2,8 @@ import axios from "axios";
 import "./style.css";
 import { useEffect, useState } from "react";
 import SideBar from "../sideBar"
+import wishlist from "../../assets/wishlist.svg"
+import { ReactSVG } from "react-svg";
 import { useNavigate } from "react-router-dom";
 const DetailsSection = (props) => {
     const { id } = props;
@@ -70,8 +72,11 @@ const DetailsSection = (props) => {
                         </div>
                     })
                 }
+                <div className="rate">
+                    <div className="wishlist"> <div onClick={() => saveRecipe()} className="saveButton"><div>Add to WishList</div><ReactSVG src={wishlist} /></div></div>
+                    <button className="saveButton">Rate Recipe</button>
+                </div>
 
-                <button onClick={() => saveRecipe()} className="saveButton">Save Recipe</button>
             </div>
         </div>
         <SideBar />

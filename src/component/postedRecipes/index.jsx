@@ -15,7 +15,16 @@ const PostedRecipies = () => {
                 setDeleted(true);
             })
     }
+    useEffect(() => {
+        const scrollToContent = () => {
+            const targetElement = document.getElementById('scrollTarget');
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
 
+        scrollToContent();
+    }, []);  
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
@@ -37,6 +46,7 @@ const PostedRecipies = () => {
     }, [deleted]);
 
     return <div>
+        <div id="scrollTarget"></div>
         <div className="grid-container">
             {recipes.map((recipes) => {
                 const recipeDetailLink = `/details/${recipes.id}`;

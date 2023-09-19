@@ -2,12 +2,21 @@
   font-family: poppins-font;
   src: url("../../assets/fonts/poppins/Poppins-Black.ttf");
 } */
+.trendy {
+  font-size: 25px;
+}
+.recentCards {
+  padding: 90px 0px 0px 0px;
+}
+.addSectionSlideDiv {
+  display: flex;
+}
 .addside {
   display: flex;
   margin: 60px;
 }
-.listElement{
-  display:flex;
+.listElement {
+  display: flex;
   justify-content: space-evenly;
 }
 .recipes {
@@ -102,7 +111,7 @@
 .file-input-container {
   overflow: hidden;
   display: flex;
-  gap:20px
+  gap: 20px;
 }
 
 .custom-file-input {

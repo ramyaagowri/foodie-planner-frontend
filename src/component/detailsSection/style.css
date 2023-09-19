@@ -7,12 +7,22 @@
 .recipeName {
   font-size: 30px;
 }
+.wishlist svg {
+  height: 15px;
+  width: 30px;
+  fill: white;
+}
+
 .recipeImage img {
   height: 50%;
   width: 50%;
 }
 .text {
   font-size: 20px;
+}
+.rate {
+  display: flex;
+  gap: 50px;
 }
 .title {
   font-size: 30px;
@@ -22,6 +32,9 @@
   color: white;
   padding: 10px;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 .ing {
   display: flex;

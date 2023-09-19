@@ -12,7 +12,7 @@ function ProfilePage() {
                 <ul>
                     <li> <NavLink to="user-profile">Profile</NavLink></li>
                     <li> <NavLink to="posted-recipe">Posted Recipes</NavLink></li>
-                    <li><NavLink to="saved-recipe">Saved Recipes</NavLink></li>
+                    <li><NavLink to="saved-recipe">WishList</NavLink></li>
                     <li> <NavLink to="meal-plans">Meal plans</NavLink></li>
                 </ul>
             </div >

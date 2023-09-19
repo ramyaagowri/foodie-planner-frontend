@@ -8,7 +8,9 @@ const ProfileDetails = () => {
         <img src="https://metropolitanhost.com/themes/themeforest/html/trickly/assets/img/ig/4.jpg"></img>
         <div className="profileDetails">
             <div className="author">Ramyaa Gowri's Recipes</div>
-            <div>Followers 1k</div>
+            <div className="followers">Followers 1k</div>
+            <div className="user-description">Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+            Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</div>
         </div>
     </div>
 }

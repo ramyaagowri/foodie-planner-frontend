@@ -1,17 +1,28 @@
-.profileNav-container{
+.profileNav-container {
   display: flex;
   /* flex-direction:column; */
-  width:100%;
-  padding:30px
+  gap: 10%;
+  width: 100%;
+  padding: 30px;
 }
-.profileDetails{
-  flex:2
+.followers{
+  color:rgb(162, 67, 67)
 }
-.profilePic{
-  flex:1
+.profileDetails {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-.profileNav-container img{
-  height:auto;
-  width:30% ;
-  border-radius: 50px;
+.profilePic {
+  flex: 1;
+}
+.profileNav-container img {
+  height: auto;
+  width: 15%;
+  border-radius: 50%;
+}
+
+.author{
+  font-size:25px
 }
