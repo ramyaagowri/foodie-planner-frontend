@@ -10,6 +10,9 @@ import SavedRecipes from "../component/savedRecipes";
 import MealPlans from "../component/mealPlans";
 import AddRecipes from "../pages/addRecipes";
 import ProfileDetails from "../component/profileDetails";
+import UserProfile from "../pages/userProfile";
+import UserPostedProfile from "../component/UserPostedProfile";
+import UserMealPlansProfile from "../component/UserMealPlansProfile";
 function AppRoutes() {
     return (
         <>
@@ -25,6 +28,10 @@ function AppRoutes() {
                     </Route>
                     <Route path="/add-recipes" element={<AddRecipes />} />
                     <Route path="/details/:id" element={<DetailedRecipes />} />
+                    <Route path="/user-profile/:id" element={<UserProfile />}>
+                        <Route path="user-posted-recipes" element={<UserPostedProfile />} />
+                        <Route path="user-meal-plans" element={<UserMealPlansProfile />} />
+                    </Route>
                     <Route path="*" element={<NoMatchRoutes />} />
                 </Routes>
             </UserDataContextWrapper>

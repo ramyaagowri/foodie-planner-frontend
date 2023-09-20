@@ -14,7 +14,7 @@ const DetailsSection = (props) => {
     const [hover, setHover] = useState(null)
 
     const { id } = props;
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbElkIjoicmFteWFhZ293cmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5NTE3OTE4MiwiZXhwIjoxNjk1MjY1NTgyfQ.Rc9M6MOpQ20oNHy4Zybb8DpbRB4njmFXzRBVYV0FQAk'
     const [recipe, setRecipe] = useState();
     const [ingredients, setIngredients] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
@@ -80,11 +80,11 @@ const DetailsSection = (props) => {
     useEffect(() => {
         axios.get(`http://localhost:4000/foodie-planner/Recipes/getDetails/${id}`)
             .then((response) => {
+                console.log("Recponseee", response)
                 setRecipe(response.data);
                 axios.get(`http://localhost:4000/foodie-planner/Recipes/getIngredients/${id}`)
                     .then((response) => {
-                        console.log("Ingredients ", response.data);
-                        console.log(recipe, ingredients, "Froom detailed recipes")
+
                         setIngredients(response.data)
                     })
                     .catch((e) => console.log(e))
@@ -95,7 +95,7 @@ const DetailsSection = (props) => {
             recipeId: id
         }).then((Response) => console.log(Response))
     }, [id, rating])
-
+    const profileLink = `/user-profile/${recipe?.user.id}`
     return <div className="section">
         <div>
             <div className="content">
@@ -103,7 +103,9 @@ const DetailsSection = (props) => {
             </div>
             {console.log(recipe)}
             <div className="detailsMain">
-                <div className="recipeName">{recipe?.recipeName}</div>
+                <div className="recipeName">{recipe?.recipeName}
+                    <div className="authorname"><a href={profileLink}>{recipe?.user.name}</a></div></div>
+
                 <div className="ratings">
                     {console.log(recipe?.rating)}
                     { }

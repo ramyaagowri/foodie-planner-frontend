@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ProfileDetails = () => {
     const [profileDetails, setProfileDetails] = useState({});
     const [editMode, setEditMode] = useState(false);
@@ -47,16 +48,26 @@ const ProfileDetails = () => {
             )
             .then((response) => {
                 setProfileDetails(response.data);
-
+                //Profile Pic update
                 axios.post("http://localhost:4000/foodie-planner/Auth/updateProfilePic")
                 setEditMode(false);
 
 
 
-                //Sroll into view
+                //SCroll into view
 
                 const target = document.querySelector(".profileImage");
                 target.scrollIntoView({ behavior: "smooth" })
+                toast.info('Profile edited', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             })
             .catch((error) => {
                 console.error("Error updating profile:", error);
@@ -140,6 +151,7 @@ const ProfileDetails = () => {
 
                 </div>
             </div>
+            <ToastContainer />
         </>
     );
 };

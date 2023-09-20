@@ -24,6 +24,10 @@ const PostedRecipies = () => {
                     theme: "light",
                 });
                 setDeleted(true);
+                const targetElement = document.getElementById('scrollTarget');
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
             })
     }
     useEffect(() => {
@@ -46,7 +50,7 @@ const PostedRecipies = () => {
                     },
                 })
                 .then((response) => {
-                    console.log("From profile data ", response.data)
+                    console.log("From profile data--------------", response.data)
                     setRecipes(response.data[0].postedRecipies)
 
                 })

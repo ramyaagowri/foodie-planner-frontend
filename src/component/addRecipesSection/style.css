@@ -6,6 +6,18 @@
 .trendy {
   font-size: 25px;
 }
+.listElement button {
+  margin: 0;
+}
+.listElement {
+  outline: 1px solid rgb(165, 160, 160);
+  border-radius: 10px;
+}
+.listElement div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .recentCards {
   padding: 90px 0px 0px 0px;
 }

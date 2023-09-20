@@ -247,7 +247,7 @@ const AddRecipesSection = () => {
                         </div>
                         <div className="ele1 box">
                             <label className="recipe-name recipe">Link for your Recipe</label>
-                            <input type="text" placeholder="Enter Recipe Link (OPTIONAL)" onChange={(e) => dispatch({ type: "updateLink", payload: e.target.value })}  />
+                            <input type="text" placeholder="Enter Recipe Link (OPTIONAL)" onChange={(e) => dispatch({ type: "updateLink", payload: e.target.value })} />
                         </div>
                         <div className="ingredients">
                             <div className="ele3 box">

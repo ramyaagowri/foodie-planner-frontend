@@ -7,6 +7,10 @@
   border-radius: 8px;
   outline: 2px solid rgb(135, 131, 131);
 }
+.authorname a{
+  font-size: 15px;
+  color:rgb(91, 79, 79)
+}
 .ratee input[type="radio"] {
   display: none;
 }

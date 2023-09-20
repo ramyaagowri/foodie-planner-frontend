@@ -14,11 +14,12 @@ const NavBar = () => {
         if (!isClicked) {
             setIsClicked(true);
         }
-
     }
+
     const removeBackdrop = () => {
         setIsClicked(false)
     }
+
     return (
         <>
             <div className={isClicked ? "Backdrop" : "removeBackdrop"} onClick={() => removeBackdrop()}>
@@ -30,12 +31,6 @@ const NavBar = () => {
                         <div className="line"></div>
                         <div className="line"></div>
                     </div>
-                    {/* <ReactSVG src={menu}
-                    style={{
-                        height: "20px",
-                        width: "20px",
-                    }}
-                /> */}
                 </div>
                 <div className='subnav'>
                     <ul>
@@ -65,6 +60,9 @@ const NavBar = () => {
                         }}
                     />
                 </div>
+            </div>
+            <div style={{ marginTop: '50px' }}> {/* Add margin-top to content to prevent it from being hidden behind the navbar */}
+                {/* Your page content */}
             </div>
             <SideBar clicked={isClicked} />
         </>
