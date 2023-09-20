@@ -40,7 +40,7 @@
   display: flex;
   justify-content: center;
   gap: 60px;
-  padding: 30px;
+  padding: 10px;
 }
 .expert div div {
   transition: color 0.3s;

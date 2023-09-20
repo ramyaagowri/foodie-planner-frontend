@@ -2,6 +2,7 @@
   font-family: poppins-font;
   src: url("../../assets/fonts/poppins/Poppins-Black.ttf");
 } */
+
 .trendy {
   font-size: 25px;
 }
@@ -61,7 +62,7 @@
 .box {
   padding: 10px;
   font-size: 24px;
-  margin: 0 0 20px;
+  margin: 10px 0 20px;
   font-family: "Noto Serif", serif;
   font-weight: 700;
   line-height: 1.2;

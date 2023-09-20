@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import React from "react";
 import DetailedRecipes from "../pages/detailedRecipes";
 import { UserDataContextWrapper } from "../component/context";
 import Home from "../component/home";

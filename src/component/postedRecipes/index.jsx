@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { ReactSVG } from "react-svg";
 import clock from "../../assets/clock.svg"
 import knife from "../../assets/knife.svg"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const PostedRecipies = () => {
 
     const [recipes, setRecipes] = useState([]);
@@ -12,6 +13,16 @@ const PostedRecipies = () => {
         //Delete the post 
         axios.delete(`http://localhost:4000/foodie-planner/Recipes/delete/${id}`)
             .then(() => {
+                toast.info('Recipe Deleted', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
                 setDeleted(true);
             })
     }
@@ -24,7 +35,7 @@ const PostedRecipies = () => {
         };
 
         scrollToContent();
-    }, []);  
+    }, []);
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
@@ -73,15 +84,15 @@ const PostedRecipies = () => {
                         <div className="content-heading"><strong>{recipes.recipeName}</strong></div>
                         <div className="content-section">{recipes.description}</div>
                         <a href={recipeDetailLink}><div className="content-footer"><strong>Read More</strong></div></a>
-                        {deleted ? <> <div className="deleted">Your Recipe Has Been Deleted</div>
-                            {setTimeout(() => {
-                                setDeleted(false)
-                            }, 5000)}</> : <button onClick={() => handleDelete(recipes.id)}>Delete</button>}
+                        {deleted ? setTimeout(() => {
+                            setDeleted(false)
+                        }, 0) : <button onClick={() => handleDelete(recipes.id)}>Delete</button>}
 
                     </div>
                 </div>
             })}
         </div>
-    </div>
+        <ToastContainer />
+    </div >
 }
 export default PostedRecipies;

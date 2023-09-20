@@ -1,28 +1,82 @@
 .profileNav-container {
   display: flex;
+  flex-shrink: 0;
   /* flex-direction:column; */
   gap: 10%;
   width: 100%;
   padding: 30px;
 }
-.followers{
-  color:rgb(162, 67, 67)
+.profileImage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.followers {
+  color: rgb(162, 67, 67);
 }
 .profileDetails {
-  flex: 2;
+  flex: 3;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  gap: 5px;
 }
 .profilePic {
   flex: 1;
 }
 .profileNav-container img {
   height: auto;
-  width: 15%;
+  width: 85%;
   border-radius: 50%;
 }
 
-.author{
-  font-size:25px
+.author {
+  font-size: 25px;
+}
+.profileDetails button {
+  width: 20%;
+  color: white;
+  background-color: #262626;
+}
+
+.user-description form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.Pro {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.Profilebtn {
+  display: flex;
+  gap: 30px;
+  /* margin-top: 10px; */
+}
+.Pro input {
+  padding: 20px;
+}
+.Pro textarea {
+  padding: 20px;
+  width: 100%;
+  height: 400px;
+  resize: none;
+}
+.profileBorder {
+  padding: 30px;
+  outline: 2px solid #a7a1a1;
+  border-radius: 10px;
+}
+button {
+  margin-top: 30px;
+}
+.Pro label {
+  font-size: 24px;
+  margin: 10px 0 20px;
+  font-family: "Noto Serif", serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #222;
 }

@@ -4,7 +4,7 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 
 const SideBar = (props) => {
-   
+
     const { clicked } = props;
     const [Recipes, setRecipe] = useState([]);
     useEffect(() => {
@@ -14,6 +14,9 @@ const SideBar = (props) => {
                 setRecipe(response.data)
             })
     }, [])
+    useEffect(() => {
+        clicked ? document.body.classList.add("no-scroll") : document.body.classList.remove("no-scroll")
+    }, [clicked])
     return <div className={clicked ? "activee" : "sidebar"}>
         <div className="backdrop">
             <div className="outline">
