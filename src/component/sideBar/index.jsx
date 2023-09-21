@@ -7,6 +7,8 @@ const SideBar = (props) => {
 
     const { clicked } = props;
     const [Recipes, setRecipe] = useState([]);
+
+   
     useEffect(() => {
         axios.get("http://localhost:4000/foodie-planner/Recipes/randomRecipe")
             .then((response) => {
@@ -18,6 +20,7 @@ const SideBar = (props) => {
         clicked ? document.body.classList.add("no-scroll") : document.body.classList.remove("no-scroll")
     }, [clicked])
     return <div className={clicked ? "activee" : "sidebar"}>
+
         <div className="backdrop">
             <div className="outline">
                 <div className="out1">Good Food</div>

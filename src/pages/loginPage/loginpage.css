@@ -1,24 +1,25 @@
 .loginPage {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   /* display: flex; */
   justify-content: center;
   align-items: center;
-  background-color:rgb(188, 191, 191);
+  background-color: rgb(188, 191, 191);
+  /* background-image: linear-gradient(to right, purple, blue);
+  filter: brightness(150%); */
 }
 
-.loginPage div{
-    text-align: center;
+.loginPage div {
+  text-align: center;
 }
 
-.googleauth a
-{
-    padding: 0.6em 1.2em;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    transition: border-color 0.25s;
-    font-size: 1em;
-    font-weight: 500;
-    background-color: aliceblue;
+.googleauth a {
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border-color 0.25s;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: aliceblue;
 }

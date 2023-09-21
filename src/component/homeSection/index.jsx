@@ -9,7 +9,7 @@ import axios from "axios";
 const HomeSection = () => {
     const navigate = useNavigate();
     const [recipes, setRecipes] = useState([]);
-
+    
     useEffect(() => {
         if (!localStorage.getItem("token")) navigate("/login");
         axios.get("http://localhost:4000/foodie-planner/Recipes/getAllRecipe")
@@ -17,6 +17,7 @@ const HomeSection = () => {
                 console.log(response.data);
                 setRecipes(response.data)
             });
+
     }, [])
 
     return (
@@ -24,6 +25,7 @@ const HomeSection = () => {
             <div className="content">
                 <div className="recipes">Recipe Grid</div>
             </div>
+            <div className="scrollTarget"></div>
             <div className="grid-container">
                 {recipes.map((recipes) => {
                     const recipeDetailLink = `/details/${recipes.id}`;

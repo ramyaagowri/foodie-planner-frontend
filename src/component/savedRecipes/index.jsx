@@ -9,14 +9,17 @@ import 'react-toastify/dist/ReactToastify.css';
 const SavedRecipes = () => {
     const [recipes, setRecipe] = useState([]);
     useEffect(() => {
-        const scrollToContent = () => {
-            const targetElement = document.getElementById('scrollTarget');
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        };
+        const navbarHeight = 100;
+        const targetElement = document.getElementById("scrollTarget");
+        if (targetElement) {
+            const scrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+            window.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth',
+            });
+        }
 
-        scrollToContent();
+
     }, []);
     const unSave = (id) => {
         const token = localStorage.getItem("token");
@@ -36,6 +39,16 @@ const SavedRecipes = () => {
                 progress: undefined,
                 theme: "light",
             });
+            const targetElement = document.getElementById("scrollTarget");
+            if (targetElement) {
+                const navbarHeight = 100;
+                const scrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+                window.scrollTo({
+                    top: scrollPosition,
+                    behavior: 'smooth',
+                });
+            }
+
         })
     }
     useEffect(() => {

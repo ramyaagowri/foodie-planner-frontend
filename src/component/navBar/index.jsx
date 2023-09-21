@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { ReactSVG } from "react-svg";
 import SideBar from '../sideBar';
 import facebook from "../../assets/facebook.svg"
@@ -6,6 +5,7 @@ import instagram from "../../assets/instagram.svg"
 import twitter from "../../assets/twitter.svg"
 import { NavLink } from 'react-router-dom';
 import "./style.css"
+import { useState } from "react";
 
 const NavBar = () => {
     const [isClicked, setIsClicked] = useState(false);
@@ -61,8 +61,7 @@ const NavBar = () => {
                     />
                 </div>
             </div>
-            <div style={{ marginTop: '50px' }}> {/* Add margin-top to content to prevent it from being hidden behind the navbar */}
-                {/* Your page content */}
+            <div style={{ marginTop: '50px' }}>
             </div>
             <SideBar clicked={isClicked} />
         </>

@@ -18,7 +18,10 @@
   color: rgb(101, 142, 193);
 }
 .profile-nav {
-  outline: 1px solid #939598;
+  /* outline: 2px solid #939598;
+   */
+  outline: 2px solid grey;
+
   border-radius: 10px;
   height: fit-content;
 }

@@ -5,6 +5,7 @@ import clock from "../../assets/clock.svg"
 import knife from "../../assets/knife.svg"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "./style.css"
 const PostedRecipies = () => {
 
     const [recipes, setRecipes] = useState([]);
@@ -24,21 +25,32 @@ const PostedRecipies = () => {
                     theme: "light",
                 });
                 setDeleted(true);
-                const targetElement = document.getElementById('scrollTarget');
+                const navbarHeight = 100;
+                const targetElement = document.getElementById("scrollTarget");
                 if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    const scrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+                    window.scrollTo({
+                        top: scrollPosition,
+                        behavior: 'smooth',
+                    });
                 }
             })
     }
     useEffect(() => {
-        const scrollToContent = () => {
-            const targetElement = document.getElementById('scrollTarget');
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        };
+        // const targetElement = document.getElementById('scrollTarget');
+        // if (targetElement) {
+        //     targetElement.scrollIntoView();
+        // }
+        const navbarHeight = 100;
+        const targetElement = document.getElementById("scrollTarget");
+        if (targetElement) {
+            const scrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+            window.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth',
+            });
+        }
 
-        scrollToContent();
     }, []);
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -61,7 +73,7 @@ const PostedRecipies = () => {
     }, [deleted]);
 
     return <div>
-        <div id="scrollTarget"></div>
+        <div id="scrollTarget" ></div>
         <div className="grid-container">
             {recipes.map((recipes) => {
                 const recipeDetailLink = `/details/${recipes.id}`;
@@ -90,8 +102,12 @@ const PostedRecipies = () => {
                         <a href={recipeDetailLink}><div className="content-footer"><strong>Read More</strong></div></a>
                         {deleted ? setTimeout(() => {
                             setDeleted(false)
-                        }, 0) : <button onClick={() => handleDelete(recipes.id)}>Delete</button>}
-
+                        }, 0) : <button onClick={() => handleDelete(recipes.id)} style={
+                            {
+                                color: "white",
+                                backgroundColor: "#262626"
+                            }
+                        }>Delete</button>}
                     </div>
                 </div>
             })}

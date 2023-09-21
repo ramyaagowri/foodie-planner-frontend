@@ -14,7 +14,7 @@ const DetailsSection = (props) => {
     const [hover, setHover] = useState(null)
 
     const { id } = props;
-    const navigate = useNavigate(); 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbElkIjoicmFteWFhZ293cmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5NTE3OTE4MiwiZXhwIjoxNjk1MjY1NTgyfQ.Rc9M6MOpQ20oNHy4Zybb8DpbRB4njmFXzRBVYV0FQAk'
+    const navigate = useNavigate();
     const [recipe, setRecipe] = useState();
     const [ingredients, setIngredients] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
@@ -95,7 +95,7 @@ const DetailsSection = (props) => {
             recipeId: id
         }).then((Response) => console.log(Response))
     }, [id, rating])
-    const profileLink = `/user-profile/${recipe?.user.id}`
+    const profileLink = `/user-profile/${recipe?.user.id}/user-posted-recipes`
     return <div className="section">
         <div>
             <div className="content">

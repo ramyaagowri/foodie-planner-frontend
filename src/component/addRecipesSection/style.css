@@ -12,6 +12,7 @@
 .listElement {
   outline: 1px solid rgb(165, 160, 160);
   border-radius: 10px;
+  margin:10px
 }
 .listElement div {
   display: flex;
@@ -37,7 +38,7 @@
   margin: 0;
   color: #fff;
   font-size: 80px;
-  font-family: "Noto Serif", serif;
+  font-family: cursive;
   z-index: 3;
   position: relative;
   font-weight: 700;
@@ -80,11 +81,16 @@
   line-height: 1.2;
   color: #222;
 }
+.ele3{
+  font-family: cursive;
+}
 .main {
   flex: 2;
   padding: 50px;
   margin: 50px;
-  border: 2px solid #7a7a7a;
+  /* border: 2px solid #7a7a7a; */
+  border: 2px solid grey;
+  border-radius: 20px;
 }
 .recipe {
   padding: 0px 0px 10px 0px;

@@ -18,6 +18,7 @@ const LoginPage = () => {
 
   return (
     <div className="loginPage">
+      {/* <div className="loginCard"> */}
       <div>
         <Auth />
       </div>
@@ -29,6 +30,8 @@ const LoginPage = () => {
         </div>
       )}
     </div>
+
+    // </div>
   );
 };
 
