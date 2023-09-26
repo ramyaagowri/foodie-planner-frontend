@@ -19,7 +19,7 @@ const ProfileDetails = () => {
         const token = localStorage.getItem("token");
         if (!token) navigate("/login");
         axios
-            .get("http://localhost:4000/foodie-planner/Auth/getProfile", {
+            .get("http://localhost:4000/foodie-planner/Auth/getProfile/0", {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -49,7 +49,9 @@ const ProfileDetails = () => {
             .then((response) => {
                 setProfileDetails(response.data);
                 //Profile Pic update
-                axios.post("http://localhost:4000/foodie-planner/Auth/updateProfilePic")
+                // const FormData = new formData;
+
+                // axios.post("http://localhost:4000/foodie-planner/Auth/updateProfilePic")
                 setEditMode(false);
 
 
@@ -79,7 +81,7 @@ const ProfileDetails = () => {
             <div className="profileNav-container">
                 <div className="profileImage">
                     <img
-                        src="https://metropolitanhost.com/themes/themeforest/html/trickly/assets/img/ig/4.jpg"
+                        src={profileDetails.profilePic}
                         alt="Profile"
                     />
                 </div>
@@ -138,7 +140,7 @@ const ProfileDetails = () => {
 
                                     </div>                                </form>
                             ) : (
-                                profileDetails.description
+                                profileDetails.description ? profileDetails.description : <div>No Description added </div> 
                             )}
 
                         </div>

@@ -19,7 +19,7 @@ const reducer = (state, action) => {
   }
 }
 
-const Auth = () => {
+const Auth = ({ googleUrl }) => {
   const navigate = useNavigate();
 
   // Reducer Logic
@@ -56,40 +56,45 @@ const Auth = () => {
   }, [state])
 
   return (
-    <>
-      <div className="login-container">
-        <form className="jwt" onSubmit={(e) => postlogin(e, state)}>
-          <div>Sign Up</div>
+    <div><div className="login-container">
+      <form className="jwt" onSubmit={(e) => postlogin(e, state)}>
+        <div>Sign Up</div>
 
-          <input
-            placeholder="Enter Email Address"
-            value={state.email}
-            onChange={(e) => dispach({ type: "updateEmail", payload: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={state.password}
-            onChange={(e) => dispach({ type: "updatePassword", payload: e.target.value })}
-          />
+        <input
+          placeholder="Enter Email Address"
+          value={state.email}
+          onChange={(e) => dispach({ type: "updateEmail", payload: e.target.value })}
+        />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={state.password}
+          onChange={(e) => dispach({ type: "updatePassword", payload: e.target.value })}
+        />
 
-          {/* <input
-            placeholder="Enter Email Address"
-            value={user.email}
-            onChange={(e) => updateUser(user, setUser, "email", e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={user.password}
-            onChange={(e) =>
-              updateUser(user, setUser, "password", e.target.value)
-            }
-          /> */}
-          <button type="submit">Login</button>
-        </form>
-      </div>
-    </>
+        {/* <input
+        placeholder="Enter Email Address"
+        value={user.email}
+        onChange={(e) => updateUser(user, setUser, "email", e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Enter Password"
+        value={user.password}
+        onChange={(e) =>
+          updateUser(user, setUser, "password", e.target.value)
+        }
+      /> */}
+        <button type="submit">Login</button>
+      </form>
+      {googleUrl && (
+        <div className="googleauth">
+          <div style={{ margin: "15px 0" }} >or</div>
+          <a href={googleUrl}>Sign In With Google</a>
+        </div>
+      )}
+    </div>
+    </div>
   );
 };
 export default Auth;

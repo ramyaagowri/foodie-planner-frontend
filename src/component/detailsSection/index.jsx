@@ -101,6 +101,7 @@ const DetailsSection = (props) => {
             <div className="content">
                 <div className="recipes">Recipe Details</div>
             </div>
+
             {console.log(recipe)}
             <div className="detailsMain">
                 <div className="recipeName">{recipe?.recipeName}
@@ -162,7 +163,10 @@ const DetailsSection = (props) => {
                                                 <input type="radio"
                                                     value={currentRating}
                                                     name="rating"
-                                                    onClick={() => setRating(currentRating)}>
+                                                    onClick={() => {
+                                                        setRating(currentRating);
+                                                        closePopup()
+                                                    }}>
                                                 </input>
                                                 <FaStar size={30} className="star" color={currentRating <= (hover || rating) ? "yellow" : null}
                                                     onMouseEnter={() => setHover(currentRating)}
@@ -171,7 +175,7 @@ const DetailsSection = (props) => {
                                         )
                                     })}
                                 </div>
-                                <button onClick={() => closePopup()}>Close</button>
+                                {/* <button onClick={() => closePopup()}>Close</button> */}
                             </div>
                         </div>
                     </div>

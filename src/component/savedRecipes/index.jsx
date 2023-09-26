@@ -71,7 +71,7 @@ const SavedRecipes = () => {
     }, []);
     return <div>
         <div id="scrollTarget"></div>
-        <div className="grid-container">
+        {recipes.length > 0 ? <div className="grid-container">
             {recipes.map((recipe) => {
                 const recipeDetailLink = `/details/${recipe.recipe.id}`;
                 return <div className="grid" key={recipe.recipe.id}>
@@ -105,7 +105,7 @@ const SavedRecipes = () => {
                     </div>
                 </div>
             })}
-        </div>
+        </div> : <div className="alternative_text">Add recipes to your wishlist</div>}
         <ToastContainer />
     </div>
 }

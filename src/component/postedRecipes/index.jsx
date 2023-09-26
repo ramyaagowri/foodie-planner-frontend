@@ -74,44 +74,47 @@ const PostedRecipies = () => {
 
     return <div>
         <div id="scrollTarget" ></div>
-        <div className="grid-container">
-            {recipes.map((recipes) => {
-                const recipeDetailLink = `/details/${recipes.id}`;
-                return <div className="grid" key={recipes.id}>
-                    <div className="imgdiv">
-                        <a href={recipeDetailLink}>
-                            <div className="img" style={{ backgroundImage: `url(${recipes.image})` }}>                        </div>
-                        </a>
-                    </div>
-                    <div className="expert">
-                        <div className="svg">
-                            <ReactSVG src={clock} />
-                            <div>{recipes.timeToMake} Minutes</div>
+        {recipes.length > 0 ?
+            <div className="grid-container">
+
+                {recipes.map((recipes) => {
+                    const recipeDetailLink = `/details/${recipes.id}`;
+                    return <div className="grid" key={recipes.id}>
+                        <div className="imgdiv">
+                            <a href={recipeDetailLink}>
+                                <div className="img" style={{ backgroundImage: `url(${recipes.image})` }}>                        </div>
+                            </a>
                         </div>
-                        <div className="svg">
-                            <ReactSVG src={knife} style={{
-                                height: "20px",
-                                width: "20px"
-                            }} />
-                            <div>{recipes.level}</div>
+                        <div className="expert">
+                            <div className="svg">
+                                <ReactSVG src={clock} />
+                                <div>{recipes.timeToMake} Minutes</div>
+                            </div>
+                            <div className="svg">
+                                <ReactSVG src={knife} style={{
+                                    height: "20px",
+                                    width: "20px"
+                                }} />
+                                <div>{recipes.level}</div>
+                            </div>
+                        </div>
+                        <div className="content">
+                            <div className="content-heading"><strong>{recipes.recipeName}</strong></div>
+                            <div className="content-section">{recipes.description}</div>
+                            <a href={recipeDetailLink}><div className="content-footer"><strong>Read More</strong></div></a>
+                            {deleted ? setTimeout(() => {
+                                setDeleted(false)
+                            }, 0) : <button onClick={() => handleDelete(recipes.id)} style={
+                                {
+                                    color: "white",
+                                    backgroundColor: "#262626"
+                                }
+                            }>Delete</button>}
                         </div>
                     </div>
-                    <div className="content">
-                        <div className="content-heading"><strong>{recipes.recipeName}</strong></div>
-                        <div className="content-section">{recipes.description}</div>
-                        <a href={recipeDetailLink}><div className="content-footer"><strong>Read More</strong></div></a>
-                        {deleted ? setTimeout(() => {
-                            setDeleted(false)
-                        }, 0) : <button onClick={() => handleDelete(recipes.id)} style={
-                            {
-                                color: "white",
-                                backgroundColor: "#262626"
-                            }
-                        }>Delete</button>}
-                    </div>
-                </div>
-            })}
-        </div>
+                })}
+            </div> : <div className="alternative_text">Post your favorite recipe</div>}
+
         <ToastContainer />
     </div >
 }

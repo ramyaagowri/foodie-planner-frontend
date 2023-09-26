@@ -14,7 +14,7 @@ const MealPlans = () => {
                     },
                 })
                 .then((response) => {
-                    console.log(response.data)
+                    console.log("From Meal Plans" + response.data)
                     setPlan(response.data);
                     // setRecipe(response.data.postedRecipies)
                 })
@@ -24,17 +24,24 @@ const MealPlans = () => {
         }
     }, []);
     return <>
-        <div className="card-container">
-            {plan.map((meal) => {
-                { console.log(meal) }
-                return (<div className="card-wrap" key={meal.id}>
-                    <div>
-                        <div className="description"><strong>Day :  </strong>{meal.day}</div>
-                        <div className="recipe-name"><strong>Name of the Recipe :  </strong>{meal.mealPlan}</div>
-                    </div>
-                </div>)
-            })}
 
-        </div></>
+
+
+        {plan.length ?
+
+            <div className="card-container">
+                {plan.map((meal) => {
+                    { console.log(meal) }
+                    return (<div className="card-wrap" key={meal.id}>
+                        <div>
+                            <div className="description"><strong>Day :  </strong>{meal.day}</div>
+                            <div className="recipe-name"><strong>Name of the Recipe :  </strong>{meal.mealPlan}</div>
+                        </div>
+                    </div>)
+                })}
+            </div>
+            : <div className="alternative_text">No meal Plans added yet</div>}
+
+    </>
 }
 export default MealPlans;

@@ -20,15 +20,8 @@ const LoginPage = () => {
     <div className="loginPage">
       {/* <div className="loginCard"> */}
       <div>
-        <Auth />
+        <Auth googleUrl={googleUrl} />
       </div>
-
-      {googleUrl && (
-        <div className="googleauth">
-          <div style={{ margin: "15px 0" }} >or</div>
-          <a href={googleUrl}>Sign In With Google</a>
-        </div>
-      )}
     </div>
 
     // </div>

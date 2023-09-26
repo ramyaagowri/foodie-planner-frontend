@@ -16,7 +16,7 @@ export const UserDataContextWrapper = ({ children }) => {
         const headers = {
             Authorization: `Bearer ${token}`,
         };
-        axios.get('http://localhost:4000/foodie-planner/Auth/getProfile', { headers })
+        axios.get('http://localhost:4000/foodie-planner/Auth/getProfile/0', { headers })
             .then((response) => {
                 console.log(response.data);
                 setProfileInfo({

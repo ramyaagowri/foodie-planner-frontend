@@ -5,9 +5,12 @@
   /* display: flex; */
   justify-content: center;
   align-items: center;
-  background-color: rgb(188, 191, 191);
-  /* background-image: linear-gradient(to right, purple, blue);
-  filter: brightness(150%); */
+  /* background-color: rgb(188, 191, 191); */
+  z-index: -1;
+  /* background-image: linear-gradient(45deg, #bf5763, #7462ff, #d0791c); */
+  background-image: linear-gradient(45deg, #bf5763, #ff6272, #d0791c);
+  /* filter: brightness(100%); */
+  animation: color 12s ease-in-out infinite;
 }
 
 .loginPage div {
@@ -23,3 +26,15 @@
   font-weight: 500;
   background-color: aliceblue;
 }
+
+/* @keyframes color {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+} */

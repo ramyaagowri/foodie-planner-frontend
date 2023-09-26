@@ -1,4 +1,4 @@
-/* Section */
+ /* Section */
 
 .recipes {
   line-height: 2;
@@ -38,12 +38,12 @@
 }
 .grid-container {
   /* outline: 1px solid black; */
-  margin: 0px 0 70px 0;
+  /* margin: 0px 0 50px 0; */
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 20px;
   
-  padding :0px 20px 100px 20px
+  padding :0px 20px 30px 20px
 }
 .grid {
   outline: 1px solid rgb(213, 227, 230);
@@ -93,7 +93,7 @@
   gap: 20px;
   padding: 20px;
 }
-.content-heading {
+.content-heading a{
   font-size: 20px;
   cursor: pointer;
   transition: color 0.3s;
@@ -101,7 +101,7 @@
 .content a{
   color:black
 }
-.content-heading:hover {
+.content-heading a:hover {
   color: #ff0004d5;
 }
 .content div {

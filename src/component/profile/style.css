@@ -8,7 +8,15 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.userImage a {
+  color: rgb(65, 136, 208);
+  cursor: pointer;
 }
 .userImage img {
   border-radius: 90%;
@@ -21,6 +29,7 @@
   padding: 20px;
   outline: 2px solid grey;
   border-radius: 10px;
+  gap:30px;
   flex: 2;
 }
 .userName {

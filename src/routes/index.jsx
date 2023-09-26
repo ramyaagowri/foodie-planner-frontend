@@ -13,6 +13,7 @@ import ProfileDetails from "../component/profileDetails";
 import UserProfile from "../pages/userProfile";
 import UserPostedProfile from "../component/UserPostedProfile";
 import UserMealPlansProfile from "../component/UserMealPlansProfile";
+import FollowingPage from "../pages/followingRecipes";
 function AppRoutes() {
     return (
         <>
@@ -33,6 +34,7 @@ function AppRoutes() {
                         <Route path="user-meal-plans" element={<UserMealPlansProfile />} />
                     </Route>
                     <Route path="*" element={<NoMatchRoutes />} />
+                    <Route path="/following" element={<FollowingPage />} />
                 </Routes>
             </UserDataContextWrapper>
         </>

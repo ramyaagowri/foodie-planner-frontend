@@ -13,7 +13,7 @@ const UserPostedProfile = () => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) navigate("/login");
-        axios.get("http://localhost:4000/foodie-planner/Recipes/getSavedRecipe", {
+        axios.get(`http://localhost:4000/foodie-planner/Recipes/getSavedRecipe/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
